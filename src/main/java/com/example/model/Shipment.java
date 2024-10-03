@@ -26,14 +26,14 @@ public class Shipment {
 	@Column(name = "shipment_status", nullable = false, length = 100)
 	private String shipmentStatus;
 
-//	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	@JoinColumn(name = "store_id")
-//	private Store store;
-//
-//	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // Avoiding unnecessary data loading\
-//	@JoinColumn(name = "customer_id")
-//
-//	private Customer customer;
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "store_id")
+	private Store store;
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) 
+	@JoinColumn(name = "customer_id")
+
+	private Customer customer;
 
 	public int getShipmentId() {
 		return shipmentId;
@@ -59,29 +59,29 @@ public class Shipment {
 		this.shipmentStatus = shipmentStatus;
 	}
 
-//	public Store getStore() {
-//		return store;
-//	}
-//
-//	public void setStore(Store store) {
-//		this.store = store;
-//	}
-//
-//	public Customer getCustomer() {
-//		return customer;
-//	}
-//
-//	public void setCustomer(Customer customer) {
-//		this.customer = customer;
-//	}
+	public Store getStore() {
+		return store;
+	}
+
+	public void setStore(Store store) {
+		this.store = store;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
 	public Shipment(int shipmentId, String deliveryAddress, String shipmentStatus) {
 		super();
 		this.shipmentId = shipmentId;
 		this.deliveryAddress = deliveryAddress;
 		this.shipmentStatus = shipmentStatus;
-//		this.store = store;
-//		this.customer = customer;
+		this.store = store;
+		this.customer = customer;
 	}
 
 	public Shipment() {
